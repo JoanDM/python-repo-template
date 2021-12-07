@@ -80,6 +80,11 @@ Optionally, you can install further dependencies (recommended)
 $ brew install openssl readline sqlite3 xz zlib
 ```
 
+Additionally, make sure that in your .zshrc file you have
+```shell
+export PATH="$HOME/.pyenv/shims:$PATH"
+```
+
 Now install the required Python version
 
 ```shell
