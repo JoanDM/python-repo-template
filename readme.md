@@ -18,11 +18,15 @@ In case you have autoenv installed, the repo should get automatically set up as 
 In case you don't have autoenv, you can also manually set up the environment by running:
 ```bash
 cd {name of your repo}
+pyenv install $(cat .python-version)
 python -mvenv venv
 source venv/bin/activate
 pip install --upgrade pip setuptools wheel
+git submodule init
+git submodule update
 pip install -r requirements.txt
 export PYTHONPATH=$(pwd)
+pre-commit install
 ```
 Now you should be able to run the scripts
 
