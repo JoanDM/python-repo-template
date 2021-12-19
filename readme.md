@@ -1,6 +1,6 @@
 # Python repo template
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Python 3.8.7=0](https://img.shields.io/badge/python-3.8.7-blue.svg)](https://www.python.org/downloads/release/python-380/)
+[![Python 3.9.5=0](https://img.shields.io/badge/python-3.9.5-blue.svg)](https://www.python.org/downloads/release/python-395/)
 
 Repository template used for python projects. To make it work, replace `{name of your repo}` with your target repository name in the following files:
 * readme.md
