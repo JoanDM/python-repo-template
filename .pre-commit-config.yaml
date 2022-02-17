@@ -20,3 +20,9 @@ repos:
     hooks:
       - id: isort
         args: ["--profile", "black"]
+  - repo: https://github.com/jendrikseipp/vulture
+    rev: v2.3
+    hooks:
+      - id: vulture
+        pass_filenames: true
+        args: [--min-confidence, "100"]
