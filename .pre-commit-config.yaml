@@ -26,3 +26,8 @@ repos:
       - id: vulture
         pass_filenames: true
         args: [--min-confidence, "100"]
+  - repo: https://github.com/myint/docformatter
+    rev: v1.4
+    hooks:
+      - id: docformatter
+        args: [--in-place, --wrap-summaries, "88", --wrap-descriptions, "88"]
