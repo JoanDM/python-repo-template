@@ -12,10 +12,10 @@ Repository template used for python projects. To make it work, replace `{name of
 Before anything, you must have pyenv installed in order to run the scripts smoothly.
 [How to setup pyenv](#pyenv-guide-for-handling-multiple-python-versions-in-your-mac)
 
-In case you have autoenv installed, the repo should get automatically set up as soon as you `cd {name of your repo}`. :crystal_ball:
-[How to setup autoenv](#guide-for-ultimate-repository-setup-with-autoenv)
+In case you have direnv installed, the repo should get automatically set up as soon as you `cd {name of your repo}`. :crystal_ball:
+[How to setup direnv](#guide-for-ultimate-repository-setup-with-direnv)
 
-In case you don't have autoenv, you can also manually set up the environment by running:
+In case you don't have direnv, you can also manually set up the environment by running:
 ```bash
 cd {name of your repo}
 pyenv install $(cat .python-version)
@@ -66,12 +66,13 @@ $ brew update
 $ brew install pyenv
 ```
 
-Then add pyenv init to your shell
+Then add pyenv init to your shell. To do this, add in you .zshrc
 ```shell
-$ # zsh:
-$ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
-$ # or bash:
-$ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
+fi
+export PATH="$HOME/.pyenv/shims:$PATH"
 ```
 
 Make sure to restart your shell so changes are applied
@@ -82,11 +83,6 @@ $ exec "$SHELL"
 Optionally, you can install further dependencies (recommended)
 ```shell
 $ brew install openssl readline sqlite3 xz zlib
-```
-
-Additionally, make sure that in your .zshrc file you have
-```shell
-export PATH="$HOME/.pyenv/shims:$PATH"
 ```
 
 Now install the required Python version
@@ -125,19 +121,12 @@ $ python --version
 Python 3.7.10
 ```
 
-# Guide for ultimate repository setup with Autoenv
+# Guide for ultimate repository setup with direnv
 
 If you follow these steps, every time you cd in the repo, the virtual env
 will be automatically launched. When you leave it, it'll be deactivated :star:
-```bash
-git clone git://github.com/inishchith/autoenv.git ~/.autoenv
-echo 'AUTOENV_ENABLE_LEAVE="aaa"  # Set to non-null string to enable this' | cat - ~/.autoenv/activate.sh > temp && mv temp ~/.autoenv/activate.sh
-$ # zsh:
-$ echo 'source ~/.autoenv/activate.sh' >> ~/.zshrc
-$ # or bash:
-$ echo 'source ~/.autoenv/activate.sh' >> ~/.bash_profile
 
-```
+Follow the steps in https://direnv.net/
 
 All done! Now when you cd to the repo the virtual environment settings should be applied
 automatically!
