@@ -5,7 +5,6 @@
 Repository template used for python projects. To make it work, replace `{name of your repo}` with your target repository name in the following files:
 * readme.md
 * .env
-* .env.leave
 
 # QuickStart: One-time setup
 
@@ -15,7 +14,7 @@ Before anything, you must have pyenv installed in order to run the scripts smoot
 In case you have direnv installed, the repo should get automatically set up as soon as you `cd {name of your repo}`. :crystal_ball:
 [How to setup direnv](#guide-for-ultimate-repository-setup-with-direnv)
 
-In case you don't have direnv, you can also manually set up the environment by running:
+In case you don't have direnv, you can also manually set up the environment by running in your terminal:
 ```bash
 cd {name of your repo}
 pyenv install $(cat .python-version)
@@ -47,7 +46,7 @@ You will need Python packages `black` and `pre-commit` install for this.
 
 To install the pre-commit hook, run the following command inside your repo
 ```shell
-$ pre-commit install
+pre-commit install
 ```
 
 After having installed the pre-commit hook, a commit that is not formatted correctly will be aborted, 
@@ -62,8 +61,8 @@ Through pyenv, the current repository defines the Python version to be used in `
 
 First, install pyenv through Homebrew
 ```shell
-$ brew update
-$ brew install pyenv
+brew update
+brew install pyenv
 ```
 
 Then add pyenv init to your shell. To do this, add in you .zshrc
@@ -77,18 +76,18 @@ export PATH="$HOME/.pyenv/shims:$PATH"
 
 Make sure to restart your shell so changes are applied
 ```shell
-$ exec "$SHELL"
+exec "$SHELL"
 ```
 
 Optionally, you can install further dependencies (recommended)
 ```shell
-$ brew install openssl readline sqlite3 xz zlib
+brew install openssl readline sqlite3 xz zlib
 ```
 
 Now install the required Python version
 
 ```shell
-$ pyenv install 3.8.7
+pyenv install 3.8.7
 ```
 
 When running Python via pyenv, you might get an error such as:
@@ -126,7 +125,12 @@ Python 3.7.10
 If you follow these steps, every time you cd in the repo, the virtual env
 will be automatically launched. When you leave it, it'll be deactivated :star:
 
-Follow the steps in https://direnv.net/
+Run
+```shell
+brew install direnv
+```
+
+And follow the steps in https://direnv.net/
 
 All done! Now when you cd to the repo the virtual environment settings should be applied
 automatically!
